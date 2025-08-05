@@ -1,0 +1,42 @@
+
+
+
+@font-face {
+  font-family: 'wremena-regular';
+  src: url('/public/fonts/wremena.regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'wremena-bold';
+  src: url('/public/fonts/wremena.bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'wremena-light';
+  src: url('/public/fonts/wremena.light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:  #F9F6F0;
+  font-family: 'wremena';
+  color: #3b214d;
+}
+@media (max-width: 768px) {
+  .main-section {
+    flex-direction: column;
+  }
+}
