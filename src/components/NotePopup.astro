@@ -1,0 +1,124 @@
+---
+const { note } = Astro.props;
+---
+
+<div class="note-card-wrapper">
+  <div class="note-card">
+    {note.image && <img src={note.image} alt={note.title} class="note-image" />}
+    <h3>{note.title}</h3>
+    <p>{note.summary}</p>
+  </div>
+
+  <div class="popup-overlay hidden">
+    <div class="popup-content">
+      <span class="popup-close">✕</span>
+      {note.image && <img src={note.image} alt={note.title} style="max-width:300px; display:block; margin:0 auto 1rem auto;" />}
+      <h1>{note.title}</h1>
+      <div class="note-body" set:html={note.content}></div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.note-card-wrapper').forEach(wrapper => {
+    const card = wrapper.querySelector('.note-card');
+    const popup = wrapper.querySelector('.popup-overlay');
+    const closeBtn = wrapper.querySelector('.popup-close');
+    const popupContent = wrapper.querySelector('.popup-content');
+
+    if (card && popup && closeBtn && popupContent) {
+      card.addEventListener('click', () => popup.classList.remove('hidden'));
+      popup.addEventListener('click', () => popup.classList.add('hidden'));
+      closeBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        popup.classList.add('hidden');
+      });
+      popupContent.addEventListener('click', e => e.stopPropagation());
+    }
+  });
+});
+</script>
+
+
+<style>
+.note-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Card Styles */
+.note-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 2px 16px rgba(80,69,134,0.13);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.note-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(80,69,134,0.16);
+}
+.note-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(80, 69, 134, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.popup-overlay.hidden {
+  display: none;
+}
+.popup-content {
+  background: #fff;
+  padding: 32px 24px;
+  max-width: 540px;
+  min-width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 20px 48px rgba(80,69,134,0.25);
+  position: relative;
+  max-height: 92vh;
+  overflow-y: auto;
+  text-align: center;
+}
+.popup-close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #f66867;
+  z-index: 10;
+  padding: 2px;
+  background: #fff;
+  border-radius: 10px;
+  border: none;
+  transition: background 0.2s;
+}
+.popup-close:hover {
+  background: #ffd84c;
+  color: #3e4146;
+}
+.note-body {
+  margin-top: 18px;
+  color: #3e4146;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  text-align: left;
+}
+@media (min-width: 600px) {
+  .popup-content { padding: 40px 48px; }
+}
+</style>

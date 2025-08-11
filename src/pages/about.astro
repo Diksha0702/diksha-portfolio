@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.astro";
+---
+
+<Layout>
+  <div class="about-wrapper">
+    <NavBar />
+
+    <section class="about-section">
+      <div class="about-header">
+        <a href="/">
+        <img src="/images/inital.svg" alt="D logo" class="about-logo" /></a>
+        <div>
+          <h2>Hey, I'm Diksha!</h2>
+          <p class="tagline">
+            A curious designer who loves to explore and craft ideas into
+            something meaningful.
+          </p>
+        </div>
+      </div>
+
+      <img src="/images/profile.png" alt="Diksha" class="profile-img" />
+
+      <div class="about-text">
+        <p>
+          Always curious, I wander through ideas, places, and
+          possibilities—never bound to one, but eager to explore them all. With
+          roots in IT and communication design, I’m drawn to creating in many
+          forms.
+        </p>
+
+        <p>
+          My work is shaped by memories of lovely people, quiet reflections, and
+          a deep love for books, music, and fantasy. These threads weave
+          themselves into both my inner world and my art. I'd love to show you
+          around my projects.
+        </p>
+
+        <p>
+          I’m open to freelance work in multiple areas—email me at:
+          <a href="mailto:dikshajain7203@gmail.com">dikshajain7203@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="socials">
+        <span>Curious about me? Check out my socials</span>
+        <a href="#"><img src="/images/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="#"><img src="/images/instagram.svg" alt="Instagram" /></a>
+      </div>
+
+      <footer class="about-footer">
+        <p><em>Created</em> <span style="margin-left: 350px;">Aug 13, 2025</span></p>
+        <p><em>Last Edited</em> <span style="margin-left: 327px;">Aug 13, 2025</span></p>
+      </footer>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-wrapper {
+    overflow: auto;
+    color: #3c2a4d;
+    padding: 2rem;
+    margin: 0 141px;
+    border-radius: 1rem;
+  }
+
+  h2 {
+    font-family: "itc-benguiat", serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size:;
+  }
+
+  .about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .about-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .tagline {
+    font-family: "wremena-bold";
+  }
+
+  .profile-img {
+    margin: 0 115px;
+    width: 695px;
+    height: 464px;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .about-text p {
+    margin: 0 115px;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .about-text {
+    margin-right: 240px;
+  }
+  .socials {
+    margin: 0 115px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .socials img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .about-footer {
+    max-width: 710px;
+    margin: 0 105px;
+    margin-top: 1rem;
+    border-top: 2px solid #3b214d;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+  }
+</style>

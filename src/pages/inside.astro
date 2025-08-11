@@ -1,0 +1,74 @@
+---
+import NotePopup from "../components/NotePopup.astro";
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.astro";
+
+// Type hint for noteModule loaded from markdown
+type MarkdownNote = {
+  frontmatter: Record<string, any>;
+  compiledContent: () => string;
+};
+
+const notes = await Promise.all(
+  Object.entries(import.meta.glob("../content/thoughts/*.md")).map(
+    async ([, loader]) => {
+      const noteModule = (await loader()) as MarkdownNote; // type assertion here
+      return {
+        ...noteModule.frontmatter,
+        content: noteModule.compiledContent(),
+      };
+    }
+  )
+);
+---
+
+<Layout>
+  <div class="inside-wrapper">
+    <NavBar />
+    <div class="about-header">
+      <a href="/">
+        <img src="/images/inital.svg" alt="D logo" class="about-logo" /></a
+      >
+      <h1>The Insides</h1>
+      </div>
+      <div class="note-grid">
+        {notes.map((note) => <NotePopup note={note} client:load />)}
+      </div>
+    </div>
+
+    <style>
+      .inside-wrapper {
+        overflow: auto;
+        color: #3c2a4d;
+        padding: 2rem;
+        margin: 0 131px;
+      }
+      .about-header {
+        display: flex;
+        /* align-items: center; */
+        gap: 1rem;
+      }
+
+      .about-logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      h1 {
+        /* margin: 36px 0px 6px 16px; */
+        font-size: 2.6rem;
+        color: #3c2a4d;
+        font-family: "itc-benguiat", serif;
+        font-weight: 400;
+      }
+      .note-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 36px 28px;
+        padding: 36px 28px 60px 28px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+    </style>
+  </div>
+</Layout>
