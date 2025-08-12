@@ -1,0 +1,76 @@
+---
+import NavBar from "../components/NavBar.astro";
+import Layout from "../layouts/Layout.astro";
+import ImageCard from "../components/ImageCard.astro";
+
+type Photo = { image: string };
+
+const files = import.meta.glob("../content/photography/photography.md", {
+  eager: true,
+});
+
+const photodata = Object.values(files)[0] as any;
+const { photography } = photodata.frontmatter;
+---
+
+<Layout>
+  <div class="wrapper">
+    <NavBar />
+    <div class="head-title">
+      <h1>Photography</h1>
+    </div>
+    <div class="scroll-container">
+      <div class="memory-grid">
+        {photography.map((photo: Photo) => <ImageCard {...photo} />)}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  body {
+    background-image: url("/images/grids.svg");
+  }
+  .wrapper {
+    overflow: auto;
+    padding: 2rem;
+    display: block;
+  }
+  .head-title {
+    margin-top: 80px;
+    margin-bottom: 0px;
+    margin-left: 47px;
+    display: flex;
+    align-items: end;
+  }
+
+  h1 {
+    font-family: "itc-benguiat", serif;
+    font-weight: 400;
+    font-size: 2.6rem;
+  }
+
+  .memory-grid {
+    column-count: 5;
+    column-gap: 32px;
+    max-width: 1400px;
+    margin: auto;
+    padding: 16px;
+  }
+
+  .memory-grid > * {
+    break-inside: avoid-column;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 1000px) {
+    .memory-grid {
+      column-count: 4;
+    }
+  }
+  @media (max-width: 600px) {
+    .memory-grid {
+      column-count: 2;
+    }
+  }
+</style>

@@ -32,11 +32,13 @@ const { memories } = memoriesData.frontmatter;
 </Layout>
 
 <style>
+  body {
+    background-image: url("/images/grids.svg");
+  }
   .wrapper {
     overflow: auto;
     padding: 2rem;
     display: block;
-    background-image: url("/images/grids.svg");
   }
 
   .head-title {
@@ -55,7 +57,6 @@ const { memories } = memoriesData.frontmatter;
     align-items: end;
   }
 
-
   .memory-grid {
     column-count: 5;
     column-gap: 32px;
@@ -63,7 +64,6 @@ const { memories } = memoriesData.frontmatter;
     margin: auto;
     padding: 16px;
   }
-
 
   .memory-grid > * {
     break-inside: avoid-column;
