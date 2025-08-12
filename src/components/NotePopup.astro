@@ -52,8 +52,9 @@ const { note } = Astro.props;
 
 <style>
   .note-card-wrapper {
-    display: flex;
-    flex-direction: column;
+    display: inline-block; /* important for columns to work */
+    width: 100%;
+    margin-bottom: 36px;
     min-height: 100%;
     width: 300px;
   }

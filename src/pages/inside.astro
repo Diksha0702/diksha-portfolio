@@ -60,7 +60,7 @@ const notes = await Promise.all(
       font-family: "itc-benguiat", serif;
       font-weight: 400;
     }
-    .note-grid {
+    /* .note-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 36px 28px;
@@ -68,7 +68,26 @@ const notes = await Promise.all(
       max-width: 1080px;
       margin: 0 auto;
       grid-template-rows: masonry;
+    } */
+
+    .note-grid {
+      column-count: 3; /* how many columns you want at large size */
+      column-gap: 28px; /* horizontal gap between columns */
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 28px 60px 28px;
     }
 
+    @media (max-width: 900px) {
+      .note-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .note-grid {
+        column-count: 1;
+      }
+    }
   </style>
 </Layout>
