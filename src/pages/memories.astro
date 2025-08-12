@@ -18,17 +18,15 @@ const { memories } = memoriesData.frontmatter;
 
 <Layout>
   <div class="wrapper">
-    <div class="header-wrapper">
-      <NavBar />
-      <div class="header">
-        <a href="/">
-          <img src="/images/inital.svg" alt="D logo" class="logo" /></a
-        >
-        <h1>Memories</h1>
-      </div>
+    <NavBar />
+    <div class="head-title">
+      <h1>Memories</h1>
     </div>
-    <div class="memory-grid">
-      {memories.map((photo: Photo) => <PhotoCard {...photo} />)}
+
+    <div class="scroll-container">
+      <div class="memory-grid">
+        {memories.map((photo: Photo) => <PhotoCard {...photo} />)}
+      </div>
     </div>
   </div>
 </Layout>
@@ -38,22 +36,14 @@ const { memories } = memoriesData.frontmatter;
     overflow: auto;
     padding: 2rem;
     display: block;
-  }
-  .header-wrapper {
-    color: #3c2a4d;
-    margin: 0 20px;
-    margin-top: 50px;
+    background-image: url("/images/grids.svg");
   }
 
-  .header {
+  .head-title {
+    margin-top: 107px;
+    margin-left: 47px;
     display: flex;
-    margin-bottom: 15px;
-    gap: 1rem;
-  }
-
-  .logo {
-    width: 100px;
-    height: 100px;
+    align-items: end;
   }
 
   h1 {
@@ -61,14 +51,25 @@ const { memories } = memoriesData.frontmatter;
     color: #3c2a4d;
     font-family: "itc-benguiat", serif;
     font-weight: 400;
+    margin: 0;
+    align-items: end;
   }
+
+
   .memory-grid {
-    column-count: 6;
+    column-count: 5;
     column-gap: 32px;
     max-width: 1400px;
     margin: auto;
     padding: 16px;
   }
+
+
+  .memory-grid > * {
+    break-inside: avoid-column;
+    margin-bottom: 32px;
+  }
+
   @media (max-width: 1000px) {
     .memory-grid {
       column-count: 4;

@@ -26,9 +26,6 @@ const notes = await Promise.all(
   <div class="inside-wrapper">
     <NavBar />
     <div class="about-header">
-      <a href="/">
-        <img src="/images/inital.svg" alt="D logo" class="about-logo" /></a
-      >
       <h1>The Insides</h1>
     </div>
     <div class="note-grid">
@@ -41,7 +38,7 @@ const notes = await Promise.all(
       overflow: auto;
       color: #3c2a4d;
       padding: 2rem;
-      margin: 0 131px;
+      margin: 0 150px;
       display: block;
     }
     .about-header {
@@ -61,19 +58,11 @@ const notes = await Promise.all(
       font-family: "itc-benguiat", serif;
       font-weight: 400;
     }
-    /* .note-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 36px 28px;
-      padding: 36px 28px 60px 28px;
-      max-width: 1080px;
-      margin: 0 auto;
-      grid-template-rows: masonry;
-    } */
+
 
     .note-grid {
-      column-count: 3; /* how many columns you want at large size */
-      column-gap: 28px; /* horizontal gap between columns */
+      column-count: 3;
+      column-gap: 28px;
       max-width: 1080px;
       margin: 0 auto;
       padding: 36px 28px 60px 28px;
