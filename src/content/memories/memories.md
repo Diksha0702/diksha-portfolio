@@ -90,6 +90,6 @@ memories:
     image: "/images/memories/shaan.jpg"
   - title: "Udaipur • Nov 24"
     image: "/images/memories/udaipur24.jpg"
-  - title: "Tarang • Nov 24"
-    image: "/images/memories/tarang2024.jpg"
+  - title: "Samyag ❤️ • May 25"
+    image: "/images/memories/samyag.jpg"
 ---
