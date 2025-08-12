@@ -1,0 +1,51 @@
+---
+const { title, image } = Astro.props;
+---
+
+<div class="polaroid-wrapper">
+  <div class="polaroid-bg">
+    <img src={image} alt={title} class="polaroid-img" />
+    <div class="caption">{title}</div>
+  </div>
+</div>
+
+<style>
+.polaroid-wrapper {
+  break-inside: avoid;
+  margin-bottom: 36px;
+  width: 200px;
+  display: flex;
+}
+
+.polaroid-bg {
+  background: #dccef9;
+  border-radius: 5px;
+  padding: 15px 15px 50px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.polaroid-img {
+  width: 100%;
+  max-width: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.caption {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 16px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.08rem;
+  color: #3c2a4d;
+  background: none;
+  letter-spacing: 0.03em;
+}
+</style>

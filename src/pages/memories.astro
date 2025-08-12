@@ -1,0 +1,82 @@
+---
+import PhotoCard from "../components/PhotoCard.astro";
+import NavBar from "../components/NavBar.astro";
+import Layout from "../layouts/Layout.astro";
+
+type Photo = {
+  title: string;
+  image: string;
+};
+
+const files = import.meta.glob("../content/memories/memories.md", {
+  eager: true,
+});
+
+const memoriesData = Object.values(files)[0] as any;
+const { memories } = memoriesData.frontmatter;
+---
+
+<Layout>
+  <div class="wrapper">
+    <div class="header-wrapper">
+      <NavBar />
+      <div class="header">
+        <a href="/">
+          <img src="/images/inital.svg" alt="D logo" class="logo" /></a
+        >
+        <h1>Memories</h1>
+      </div>
+    </div>
+    <div class="memory-grid">
+      {memories.map((photo: Photo) => <PhotoCard {...photo} />)}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .wrapper {
+    overflow: auto;
+    padding: 2rem;
+    display: block;
+  }
+  .header-wrapper {
+    color: #3c2a4d;
+    margin: 0 20px;
+    margin-top: 50px;
+  }
+
+  .header {
+    display: flex;
+    margin-bottom: 15px;
+    gap: 1rem;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+    color: #3c2a4d;
+    font-family: "itc-benguiat", serif;
+    font-weight: 400;
+  }
+  .memory-grid {
+    column-count: 6;
+    column-gap: 32px;
+    max-width: 1400px;
+    margin: auto;
+    padding: 16px;
+  }
+  @media (max-width: 1000px) {
+    .memory-grid {
+      column-count: 4;
+    }
+  }
+  @media (max-width: 600px) {
+    .memory-grid {
+      column-count: 2;
+    }
+  }
+</style>
