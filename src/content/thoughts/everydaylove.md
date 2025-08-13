@@ -2,8 +2,8 @@
 heading: "Quite Note"
 title: "Everyday Love"
 summary: "The art of letting"
-image: "/images/notes/everyday.jpeg"
-images: "/images/notes/everyday.jpeg"
+image: "/images/notes-optimize/everyday.webp"
+images: "/images/notes-optimize/everyday.webp"
 ---
 
 But that's me ..

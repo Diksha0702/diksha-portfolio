@@ -1,7 +1,7 @@
 ---
 heading: "Quite note"
 title: "Ordinary Magic"
-images: "/images/notes/ordinary.jpeg"
+images: "/images/notes-optimize/ordinary.webp"
 ---
 
 Showing people you care or love them is becoming clichès but I think it's important in love.

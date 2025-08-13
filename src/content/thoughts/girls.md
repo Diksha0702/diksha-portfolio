@@ -1,8 +1,8 @@
 ---
 heading: "Quite note"
 title: "My Girls"
-image: "/images/notes/girls.jpeg"
-images: "/images/notes/girls.jpeg"
+image: "/images/notes-optimize/girls.webp"
+images: "/images/notes-optimize/girls.webp"
 ---
 
 Here's to all the girls who where told ' you are hard to understand ' , ' you are not easy going ', ' you are confused and make me confused ', ' you are mess' .. Which i know is not true but we don't have that courage to speak up because somewhere inside they made us doubt, is it true??

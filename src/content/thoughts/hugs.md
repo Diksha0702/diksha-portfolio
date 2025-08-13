@@ -1,7 +1,7 @@
 ---
 heading: "Quite note"
 title: "Healing Embrace"
-images: "/images/notes/hugs.jpeg"
+images: "/images/notes-optimize/hugs.webp"
 summary: "A daily dose of human warmth"
 ---
 

@@ -1,8 +1,8 @@
 ---
 heading: "Quite note"
 title: "Loved Enough"
-image: "/images/notes/selflove.jpeg"
-images: "/images/notes/selflove.jpeg"
+image: "/images/notes-optimize/selflove.webp"
+images: "/images/notes-optimize/selflove.webp"
 summary: "Balancing hearts with oneself first."
 ---
 We all are stuck between
